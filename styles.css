@@ -1,0 +1,242 @@
+:root{
+  --strong-cyan: 172, 67%, 45%;
+  --dark-cyan: 183, 100%, 15%;
+  --dark-grayish-cyan: 186, 14%, 43%;
+  --grayish-cyan: 184, 14%, 56%;
+  --light-grayish-cyan: 185, 41%, 84%;
+  --very-light-grayish-cyan: 189, 41%, 97%;
+  --white: 0, 0%, 100%;
+
+  --ff: 'Space Mono', sans-serif;
+  --fs-form-input: 24px;
+  --fw-normal: 700;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  align-items: center;
+  background-color: hsl(var(--light-grayish-cyan));
+  display: grid;
+  font-family: var(--ff);
+  font-weight: var(--fw-normal);
+  justify-items: center;
+}
+header{
+  padding-block: 2.5rem;
+}
+header img{
+  display: block;
+  height: 3rem;
+}
+
+/* this is objects container for both cards*/
+.container{
+  background-color: hsl(var(--white));
+  border-radius: 2rem 2rem 0 0;
+  padding: 2rem;
+  width: min(100%, 50rem);
+}
+
+/* this is for each heading in operations*/
+.size{
+  color: hsl(var(--dark-cyan));
+  font-size: .9rem;
+}
+
+/* this is for the inputs */
+.operations .bill-container input,
+.operations .people-container input{
+  background-color: hsl(var(--very-light-grayish-cyan));
+  background-repeat: no-repeat;
+  background-position: 1rem .75rem;
+  background-size: .7rem;
+  border: none;
+  border-radius: .25rem;
+  color: hsl(var(--dark-cyan));
+  display: block;
+  font-family: var(--ff);
+  font-size: 1.35rem;
+  font-weight: var(--fw-normal);
+  margin: .5rem 0 1rem;
+  padding:  .25rem 1rem;
+  text-align: right;
+  width: 100%;
+}
+#bill{
+  background-image: url('images/icon-dollar.svg');
+}
+#people{
+  background-image: url('images/icon-person.svg');
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus{
+  border: 2px solid hsl(var(--strong-cyan));
+  cursor: pointer;
+  outline: none;
+}
+
+.operations .people-container input::placeholder{
+  color: hsl(var(--dark-cyan));
+  font-family: var(--ff);
+  font-size: 1.35rem;
+  font-weight: var(--fw-normal);
+}
+
+
+/* this is for the number of people and validation */
+.flex{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.none{
+  color: red;
+  font-family: var(--ff);
+  font-size: .8rem;
+  font-weight: var(--fw-normal);
+}
+
+/* this is for the tip percentages */
+.tip-container{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 2.75rem);
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tip{
+  background-color: hsl(var(--dark-cyan));
+  border-radius: .45rem;
+  color: hsl(var(--white));
+  cursor: pointer;
+  font-size: 1.55rem;
+  text-align: center;
+}
+.tip:active{
+  background-color: hsla(var(--strong-cyan), .5);
+  color: hsl(var(--dark-cyan));
+  cursor: pointer;
+}
+.tip-container > input{
+  background-color: hsl(var(--very-light-grayish-cyan));
+  color: hsla(var(--dark-cyan), 1);
+  border: none;
+  display: block;
+  font-family: var(--ff);
+  font-size: 1.25rem;
+  font-weight: var(--fw-normal);
+  outline: none;
+  padding-inline: 1rem;
+  text-align: right;
+  width: 100%;
+}
+.tip-container > input::placeholder{
+  color: hsla(var(--dark-cyan), 1);
+  text-align: center;
+}
+.tip-container > input:focus{
+  background-color: hsl(var(--very-light-grayish-cyan));
+  border: 2px solid hsl(var(--strong-cyan));
+  cursor: pointer;
+}
+
+
+/* this is for the total section */
+.calc-container{
+  background-color: hsl(var(--dark-cyan));
+  border-radius: 1rem;
+  margin-top: 1.75rem;
+  padding: 1.5rem;
+}
+
+/* this is for each item on total section*/
+.result{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/* this is the heading per person */
+.calc-container .result h2{
+  color: hsl(var(--white));
+  font-size: .9rem;
+}
+.calc-container .result h2 > span{
+  color: hsl(var(--dark-grayish-cyan));
+  display: block;
+  font-size: .75rem;
+}
+
+
+/* this is the tip to be displayed */
+.calc-container .tip-amount .tip{
+  color: hsl(var(--strong-cyan));
+  font-size: 1.75rem;
+  font-weight: var(--fw-normal);
+}
+
+
+/* this the total amout to be displayed */
+.calc-container .result input{
+  background-color: transparent;
+  border: none;
+  color: hsl(var(--strong-cyan));
+  font-family: var(--ff);
+  font-size: 1.75rem;
+  font-weight: var(--fw-normal);
+  text-align: right;
+  width: 60%;
+}
+.calc-container .result input::placeholder{
+  color: hsla(var(--strong-cyan), 1);
+  font-size: 1.75rem;
+  font-weight: var(--fw-normal);
+  text-align: right;
+}
+
+/* this is for the reset button */
+#btn{
+  background-color: hsla(var(--grayish-cyan), .5);
+  border: none;
+  border-radius: .4rem;
+  display: block;
+  color: hsl(var(--dark-cyan));
+  font-size: 1.1rem;
+  font-weight: var(--fw-normal);
+  padding-block: .65rem;
+  width: 100%;
+}
+#btn:active{
+  background-color: hsl(var(--strong-cyan));
+  cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  body{
+    height: 80vh;
+  }
+  .container{
+    border-radius: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tip-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .btn{
+    position: relative;
+    top: 8.5rem;
+  }
+}
