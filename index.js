@@ -14,32 +14,40 @@ let tipResult;
 let totalResult;
 
 totalInput.addEventListener('input', () => {
-  total = totalInput.value;
+  total = Number(totalInput.value);
   console.log(total);
+  // bill.value = calculate(total,people,tip);
 });
 peopleInput.addEventListener('input', () => {
   if (peopleInput.value < 1) {
     none.textContent = "Can't be zero";
   } else {
-    people = peopleInput.value;
+    none.textContent = '';
+    people = Number(peopleInput.value);
     console.log(people); 
+    // bill.value = calculate(total, people, tip);
   }
 });
 tipClick.forEach(tips => tips.addEventListener('click', () => {
-  tip = tips.textContent;
-  calculateTip(total, tip);
+  tip = Number(tips.textContent);
+  
   console.log(tip);
+  bill.value = calculate(total, people, tip);
+  tipAmount.textContent = Number(calculateTip(total, tip));
 }));
 
-let calculate = (total, people, tip) => (total * people) + ((tip/100) * total);
 
-let calculateTip = (total, tip) => (tip/100) * total;
+let calculate = (total, people, tip) => 
+  ((total * people) + ((tip/100) * total * people));
 
-// tipAmount.textContent = tipResult;
+let calculateTip = (total, tip) => ((tip/100) * total);
+
+
+
 
 reset.addEventListener('click', () => {
-  tipAmount.textContent = '$0.00';
-  totalInput.value = '$0.00';
-  bill.value = '$0.00';
+  tipAmount.textContent = '';
+  totalInput.value = '';
+  bill.value = '';
   peopleInput.value = '0';
 })
