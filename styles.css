@@ -120,6 +120,7 @@ input:focus{
   color: hsl(var(--white));
   cursor: pointer;
   font-size: 1.55rem;
+  padding-block: .2rem;
   text-align: center;
 }
 .tip:active{
@@ -180,7 +181,7 @@ input:focus{
 
 
 /* this is the tip to be displayed */
-.calc-container .tip-amount .tip{
+.calc-container .tip-amount .tipped{
   color: hsl(var(--strong-cyan));
   font-size: 1.75rem;
   font-weight: var(--fw-normal);
@@ -224,7 +225,7 @@ input:focus{
 
 @media (min-width: 48em) {
   body{
-    height: 80vh;
+    height: 85vh;
   }
   .container{
     border-radius: 2rem;
@@ -235,8 +236,11 @@ input:focus{
   .tip-container{
     grid-template-columns: repeat(3, 1fr);
   }
-  .btn{
+  .calc-container{
+    margin: 0;
+  }
+  #btn{
     position: relative;
-    top: 8.5rem;
+    top: 10rem;
   }
 }
