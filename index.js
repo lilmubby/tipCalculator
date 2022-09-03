@@ -51,10 +51,10 @@ custom.addEventListener('input', () => {
 
 // this is the arithmetic operations
 let calculate = (bill, people, tip) => 
-  ((bill / people) + ((tip / 100) * (bill / people)));
+  ((bill / people) + ((tip / 100) * (bill / people))).toFixed(2);
 
 let calculateTip = (bill, people, tip) => 
-  ((bill / people) * (tip/100));
+  ((bill / people) * (tip/100)).toFixed(2);
 
 // this is the reset button
 reset.addEventListener('click', () => {
