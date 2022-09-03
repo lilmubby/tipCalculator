@@ -59,7 +59,7 @@ let calculateTip = (bill, people, tip) =>
 // this is the reset button
 reset.addEventListener('click', () => {
   tipAmount.textContent = '$0.00';
-  totalAmount.textContent = '';
-  bill.value = '';
+  totalAmount.textContent = '$0.00';
+  billInput.value = '';
   peopleInput.value = '';
 })
