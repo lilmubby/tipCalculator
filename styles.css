@@ -27,6 +27,7 @@ body{
 header{
   padding-block: 2.5rem;
 }
+
 header img{
   display: block;
   height: 3rem;
@@ -181,7 +182,7 @@ input:focus{
 
 
 /* this is the tip to be displayed */
-.calc-container .tip-amount .tipped{
+.calc-container .result p{
   color: hsl(var(--strong-cyan));
   font-size: 1.75rem;
   font-weight: var(--fw-normal);

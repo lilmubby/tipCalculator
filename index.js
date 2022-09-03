@@ -1,24 +1,21 @@
-let bill = document.querySelector('#bill');
+let billInput = document.querySelector('#bill');
 let tipClick = document.querySelectorAll('.tip');
 let custom = document.querySelector('#custom');
 let none = document.querySelector('.none');
 let peopleInput = document.querySelector('#people');
 let tipAmount = document.querySelector('.tipped');
-let totalInput = document.querySelector('.total-container input');
+let totalAmount = document.querySelector('.total-container .billed');
 let reset = document.querySelector('#btn');
 
-let total;
+let bill;
 let people;
 let tip;
-let tipResult;
-let totalResult;
 
-// this is the total input
-totalInput.addEventListener('input', () => {
-  total =  Number(totalInput.value);
-  console.log(total);
-  // bill.value = Number(calculate(total,people,tip));
-});
+// this is the bill input
+billInput.addEventListener('input', () => {
+  bill = Number(billInput.value);
+  console.log(bill);
+})
 
 // this takes the people input
 peopleInput.addEventListener('input', () => {
@@ -28,7 +25,9 @@ peopleInput.addEventListener('input', () => {
     none.textContent = '';
     people = Number(peopleInput.value);
     console.log(people); 
-    // bill.value = Number(calculate(total, people, tip));
+    totalAmount.textContent = Number(calculate(bill, people, tip));
+    tipAmount.textContent = Number(calculateTip(bill, people, tip));
+    // console.log(tipAmount.textContent.length)
   }
 });
 
@@ -36,8 +35,8 @@ peopleInput.addEventListener('input', () => {
 tipClick.forEach(tips => tips.addEventListener('click', () => {
   tip = Number(tips.textContent);
   console.log(tip);
-  bill.value = Number(calculate(total, people, tip));
-  tipAmount.textContent = Number(calculateTip(total, tip));
+  // totalAmount.textContent = Number(calculate(bill, people, tip));
+  // tipAmount.textContent = Number(calculateTip(bill, people, tip));
 }));
 
 // this is the custom input
@@ -45,23 +44,22 @@ custom.addEventListener('input', () => {
   // console.log(custom.value);
   tip = Number(custom.value);
   console.log(tip);
-  bill.value = Number(calculate(total, people, tip));
-  tipAmount.textContent = Number(calculateTip(total, tip));
+  // totalAmount.textContent = Number(calculate(bill, people, tip));
+  // tipAmount.textContent = Number(calculateTip(bill, people, tip));
 })
 
 
 // this is the arithmetic operations
-let calculate = (total, people, tip) => 
-  ((total * people) + ((tip/100) * total * people));
+let calculate = (bill, people, tip) => 
+  ((bill / people) + ((tip / 100) * (bill / people)));
 
-let calculateTip = (total, tip) => ((tip/100) * total);
-
-
+let calculateTip = (bill, people, tip) => 
+  ((bill / people) * (tip/100));
 
 // this is the reset button
 reset.addEventListener('click', () => {
   tipAmount.textContent = '$0.00';
-  totalInput.value = '';
+  totalAmount.textContent = '';
   bill.value = '';
   peopleInput.value = '';
 })
